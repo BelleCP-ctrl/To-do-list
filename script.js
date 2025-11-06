@@ -85,53 +85,10 @@ function carregarTarefas() {
         criarTarefaVisual(itemTarefa, index);
     });
 }
-// --- INÍCIO DA INTEGRAÇÃO DA API ---
-
-function buscarCitacao() {
-    // 1. Faz a requisição para a API
-    fetch('https://stoicismquote.com/api/v1/quote/random')
-        .then(response => {
-            // Verifica se a resposta foi bem-sucedida (status 200-299)
-            if (!response.ok) {
-                throw new Error('Erro na rede ou na API: ' + response.statusText);
-            }
-            return response.json(); // Transforma o corpo da resposta em objeto JS
-        })
-        .then(data => {
-            // 2. Encontra o elemento onde a citação será exibida
-            const container = document.querySelector('.container');
-            let citacaoElement = document.getElementById('citacao-do-dia');
-
-            // 3. Cria o elemento P se ele ainda não existir
-            if (!citacaoElement) {
-                citacaoElement = document.createElement('p');
-                citacaoElement.id = 'citacao-do-dia';
-                // Insere antes da área de input, logo abaixo do H1
-                container.insertBefore(citacaoElement, container.querySelector('.input-area')); 
-            }
-
-            // 4. Preenche o conteúdo com a citação e o autor
-            citacaoElement.innerHTML = `***"${data.content}"*** *— ${data.author}*`;
-        })
-        .catch(error => {
-            console.error('Erro ao buscar citação:', error);
-            // Opcional: Mostrar uma mensagem de erro na tela
-            const citacaoElement = document.getElementById('citacao-do-dia');
-            if (citacaoElement) {
-                citacaoElement.textContent = 'Não foi possível carregar a citação. 😔';
-            }
-        });
-}
-
-// --- FIM DA INTEGRAÇÃO DA API ---
-
 
 // INÍCIO DO PROJETO: Roda as funções necessárias!
 // Certifica-se de que a função é chamada assim que o script é carregado
 carregarTarefas();
-
-// NOVO: Chama a função da API logo no carregamento
-buscarCitacao();
 // INÍCIO DO PROJETO: Roda a função para mostrar o que já estava salvo!
 // Certifica-se de que a função é chamada assim que o script é carregado
 carregarTarefas();
