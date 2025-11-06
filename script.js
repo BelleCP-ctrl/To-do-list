@@ -89,7 +89,7 @@ function carregarTarefas() {
 
 function buscarCitacao() {
     // 1. Faz a requisição para a API
-    fetch('https://api.quotable.io/random')
+    fetch('https://stoicismquote.com/api/v1/quote/random')
         .then(response => {
             // Verifica se a resposta foi bem-sucedida (status 200-299)
             if (!response.ok) {
