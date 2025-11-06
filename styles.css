@@ -6,7 +6,19 @@ body {
     padding-top: 50px;
     margin: 0;
 }
-
+/* Estilo para a citação da API */
+#citacao-do-dia {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px; /* Para dar espaço da área de input */
+    padding: 10px;
+    border-radius: 5px;
+    background: #ffffff40;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #4a005c; /* Cor escura para o texto */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
 .container {
     background: #ffffff25;
     padding: 30px;
