@@ -48,7 +48,7 @@ function criarTarefaVisual(itemTarefa, index) {
     li.appendChild(btnRemover);
     listaTarefasUL.appendChild(li);
 }
-// 5. Função para Limpar e Reconstruir a Lista (Necessário após a remoção)
+// 5. Função para Limpar e Reconstruir a Lista
 function recarregarListaVisual() {
     listaTarefasUL.innerHTML = ''; // Limpa todos os <li> atuais
     carregarTarefas(); // Constrói a lista visual com os itens restantes e seus novos índices
@@ -70,7 +70,7 @@ btnAdicionar.addEventListener('click', function () {
     tarefas.push(novaTarefa);
     // 3. Salva a lista atualizada
     salvarTarefas();
-    // 4. Recarrega a lista visual para incluir o novo item (e definir o índice correto)
+    // 4. Recarrega a lista visual para incluir o novo item
     recarregarListaVisual();
     // 5. Limpa o campo de texto
     inputTarefa.value = "";
@@ -86,9 +86,4 @@ function carregarTarefas() {
     });
 }
 
-// INÍCIO DO PROJETO: Roda as funções necessárias!
-// Certifica-se de que a função é chamada assim que o script é carregado
-carregarTarefas();
-// INÍCIO DO PROJETO: Roda a função para mostrar o que já estava salvo!
-// Certifica-se de que a função é chamada assim que o script é carregado
 carregarTarefas();
